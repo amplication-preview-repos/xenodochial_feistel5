@@ -1,0 +1,27 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model WebPage {
+  appendedContent String?
+  content         String?
+  createdAt       DateTime @default(now())
+  id              String   @id @default(cuid())
+  updatedAt       DateTime @updatedAt
+}
+
+model FormInput {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  input1    String?
+  input2    String?
+  input3    String?
+  input4    String?
+  input5    String?
+  updatedAt DateTime @updatedAt
+}
